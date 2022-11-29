@@ -1,6 +1,13 @@
-import { Image } from "@chakra-ui/react";
+import { Image, Tooltip } from "@chakra-ui/react";
 
-export const ImageComponent = (props: { imageUrl: string }) => {
+export const ImageComponent = (props: {
+  imageUrl: string;
+  tooltipLabel: string;
+}) => {
   const imageUrl = props.imageUrl;
-  return <Image src={imageUrl} alt="Houzz Latte" />;
+  return (
+    <Tooltip label={`ingredients: ${props.tooltipLabel}`} placement="top">
+      <Image src={imageUrl} alt="Houzz Latte" />
+    </Tooltip>
+  );
 };

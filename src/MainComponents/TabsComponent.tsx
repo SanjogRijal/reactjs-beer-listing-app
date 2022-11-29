@@ -13,7 +13,14 @@ export const TabsComponent: React.FC<TabsComponentProps> = ({
     <Tabs>
       <TabList>
         {tabLists.map((tab: string) => (
-          <Tab key={Math.random().toString()}>{tab}</Tab>
+          <Tab
+            key={Math.random().toString()}
+            onClick={() => {
+              localStorage.setItem("currentTab", tab);
+            }}
+          >
+            {tab}
+          </Tab>
         ))}
       </TabList>
 

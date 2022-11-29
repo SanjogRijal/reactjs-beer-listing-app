@@ -15,19 +15,23 @@ export const CardComponent: React.FC = (): React.ReactElement => {
 
   const getBeers: any = async (): Promise<any> => {
     setPage(page + 1);
-    console.log(page);
     let beerLists: SetStateAction<any> = await axios.get(
       `${REACT_APP_BASE_URL}/beers?page=${page}&per_page=3`
     );
     setBeers(beerLists.data);
-    console.log(beerLists);
   };
 
   const beerCards: Array<ReactElement> = beers.map(
-    (beer: { name: string; description: string; image_url: string }) => {
+    (beer: {
+      name: string;
+      description: string;
+      image_url: string;
+      ingredients: Array<string>;
+    }) => {
       let beerName: string = beer.name;
       let beerDescription: string = beer.description;
       let beerImage: string = beer.image_url;
+      let ingredients: Array<string> = Object.keys(beer.ingredients);
       return (
         <Card
           direction={{ base: "column", sm: "row" }}
@@ -39,10 +43,13 @@ export const CardComponent: React.FC = (): React.ReactElement => {
           key={Math.random().toString()}
         >
           <Stack direction={"row"} padding={"1vh"}>
-            <ImageComponent imageUrl={beerImage} />
+            <ImageComponent
+              imageUrl={beerImage}
+              tooltipLabel={ingredients.toString()}
+            />
 
             <Stack>
-              <CardBody>
+              <CardBody _hover={{ backgroundColor: "#F3F8FD" }}>
                 <HeadingComponent heading={beerName} />
                 <ParagraphComponent description={beerDescription} />
               </CardBody>
@@ -56,7 +63,13 @@ export const CardComponent: React.FC = (): React.ReactElement => {
   return (
     <>
       {beerCards}
-      <Link marginLeft={"14vw"} onClick={getBeers}>
+      <Link
+        marginLeft={"14vw"}
+        onClick={getBeers}
+        color={"#076BC4"}
+        position={"relative"}
+        top={"20px"}
+      >
         Load More <ChevronDownIcon />
       </Link>
     </>

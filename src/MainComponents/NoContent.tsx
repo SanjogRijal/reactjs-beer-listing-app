@@ -1,9 +1,6 @@
 import { Container, Link, Text } from "@chakra-ui/react";
 
 export const NoContent = () => {
-  const linkClicked = () => {
-    console.log("New Beer Add Link Clicked");
-  };
 
   return (
     <Container>
