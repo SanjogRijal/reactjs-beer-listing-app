@@ -1,11 +1,12 @@
-import { CardComponent } from "../MainComponents/CardComponent";
+import { AllBeersComponent } from "../MainComponents/AllBeersComponent";
+import { MyBeersComponent } from "../MainComponents/MyBeersComponent";
 import { TabsComponent } from "../MainComponents/TabsComponent";
 
 export const ContainerComponent: React.FC = () => {
   return (
     <TabsComponent
       tabLists={["All Beers", "My Beers"]}
-      tabPanels={[<CardComponent />, <CardComponent />]}
+      tabPanels={[<AllBeersComponent />, <MyBeersComponent />]}
     />
   );
 };

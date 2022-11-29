@@ -1,3 +1,6 @@
-export const ImageComponent = () => {
-  return <h1>Image Component</h1>;
+import { Image } from "@chakra-ui/react";
+
+export const ImageComponent = (props: { imageUrl: string }) => {
+  const imageUrl = props.imageUrl;
+  return <Image src={imageUrl} alt="Houzz Latte" />;
 };

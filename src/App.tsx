@@ -8,12 +8,9 @@ function App() {
       <header className="App-header">
         <title>Beer Listing App</title>
       </header>
-
-      <body>
-        <Container>
-          <ContainerComponent />
-        </Container>
-      </body>
+      <Container>
+        <ContainerComponent />
+      </Container>
     </div>
   );
 }

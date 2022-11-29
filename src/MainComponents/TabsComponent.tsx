@@ -13,13 +13,13 @@ export const TabsComponent: React.FC<TabsComponentProps> = ({
     <Tabs>
       <TabList>
         {tabLists.map((tab: string) => (
-          <Tab>{tab}</Tab>
+          <Tab key={Math.random().toString()}>{tab}</Tab>
         ))}
       </TabList>
 
       <TabPanels>
         {tabPanels.map((panel: React.ReactElement) => (
-          <TabPanel>{panel}</TabPanel>
+          <TabPanel key={Math.random().toString()}>{panel}</TabPanel>
         ))}
       </TabPanels>
     </Tabs>

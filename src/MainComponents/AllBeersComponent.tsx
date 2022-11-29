@@ -1,3 +1,9 @@
-const AllBeersComponent = () => {
-  return <h1>All Beers Component</h1>;
+import { CardComponent } from "./CardComponent";
+
+export const AllBeersComponent = (props: any) => {
+  return (
+    <>
+      <CardComponent />
+    </>
+  );
 };
