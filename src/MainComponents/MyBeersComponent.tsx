@@ -1,10 +1,10 @@
-import { Text, Container, Link, Stack, Center } from "@chakra-ui/react";
-import CardComponent from "./CardComponent";
+import { Text, Link, Stack, Center } from "@chakra-ui/react";
+import { AddBeerComponent } from "../SecondaryComponents/AddBeerComponent";
 
 export const MyBeersComponent = () => {
-  let myBeers = ["Corona", "Budweiser", "Bahrasinghe"];
+  const myBeers = [];
   const myBeersElement: React.ReactElement =
-    myBeers.length > 0 ? (
+    myBeers.length < 0 ? (
       <Stack alignItems={"center"} position={"relative"} top="20vh">
         <Center flexDirection={"column"}>
           <Text top={"20px"}>Nothing to see yet</Text>
@@ -22,7 +22,12 @@ export const MyBeersComponent = () => {
         </Center>
       </Stack>
     ) : (
-      <CardComponent />
+      <></>
     );
-  return <>{myBeersElement}</>;
+  return (
+    <>
+      {myBeersElement}
+      <AddBeerComponent />
+    </>
+  );
 };

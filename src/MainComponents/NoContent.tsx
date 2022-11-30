@@ -1,4 +1,4 @@
-import { Container, Link, Text } from "@chakra-ui/react";
+import { Link, Text } from "@chakra-ui/react";
 
 export const NoContent = () => {
   return (

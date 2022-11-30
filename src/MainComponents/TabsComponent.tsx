@@ -17,26 +17,28 @@ export const TabsComponent: React.FC<TabsComponentProps> = ({
   tabPanels,
 }: TabsComponentProps): React.ReactElement => {
   return (
-    <Tabs>
-      <TabList>
-        {tabLists.map((tab: string) => (
-          <Tab
-            key={Math.random().toString()}
-            onClick={() => {
-              localStorage.setItem("currentTab", tab);
-            }}
-          >
-            {tab}
-          </Tab>
-        ))}
-      </TabList>
-      <Center>
-        <TabPanels>
-          {tabPanels.map((panel: React.ReactElement) => (
-            <TabPanel key={Math.random().toString()}>{panel}</TabPanel>
+    <>
+      <Tabs>
+        <TabList>
+          {tabLists.map((tab: string) => (
+            <Tab
+              key={Math.random().toString()}
+              onClick={() => {
+                localStorage.setItem("currentTab", tab);
+              }}
+            >
+              {tab}
+            </Tab>
           ))}
-        </TabPanels>
-      </Center>
-    </Tabs>
+        </TabList>
+        <Center>
+          <TabPanels>
+            {tabPanels.map((panel: React.ReactElement) => (
+              <TabPanel key={Math.random().toString()}>{panel}</TabPanel>
+            ))}
+          </TabPanels>
+        </Center>
+      </Tabs>
+    </>
   );
 };

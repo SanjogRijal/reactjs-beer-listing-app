@@ -1,47 +1,14 @@
-import {
-  Card,
-  CardBody,
-  Link,
-  Flex,
-  Stack,
-  Grid,
-  Spacer,
-  Center,
-} from "@chakra-ui/react";
-import { ChevronDownIcon } from "@chakra-ui/icons";
-import {
-  ReactElement,
-  SetStateAction,
-  Suspense,
-  useEffect,
-  useState,
-} from "react";
-import axios from "axios";
+import { Card, CardBody, Stack, Grid } from "@chakra-ui/react";
+import { ReactElement, Suspense } from "react";
 
 import { HeadingComponent } from "../SecondaryComponents/HeadingComponent";
 import { ImageComponent } from "../SecondaryComponents/ImageComponent";
 import { ParagraphComponent } from "../SecondaryComponents/ParagraphComponent";
-import { REACT_APP_BASE_URL } from "../env";
 
-const CardComponent: React.FC = (): React.ReactElement => {
-  const [beers, setBeers] = useState([]);
-  const [page, setPage] = useState(1);
-  useEffect(() => {
-    getBeers();
-  }, [page]);
-
-  const getBeers: Function = async (): Promise<any> => {
-    let beerLists: SetStateAction<any> = await axios.get(
-      `${REACT_APP_BASE_URL}/beers?page=${page}&per_page=10`
-    );
-    setBeers(beers.concat(beerLists.data));
-  };
-
-  const changePage: Function = () => {
-    setPage((p) => p + 2);
-  };
-
-  const beerCards: Array<ReactElement> = beers.map(
+const CardComponent: React.FC<{ beers: Array<any> }> = (props: {
+  beers: Array<any>;
+}): React.ReactElement => {
+  const beerCards: Array<ReactElement> = props.beers.map(
     (beer: {
       name: string;
       description: string;
@@ -94,19 +61,6 @@ const CardComponent: React.FC = (): React.ReactElement => {
       >
         {beerCards}
       </Grid>
-      <Center>
-        <Link
-          onClick={() => {
-            changePage();
-          }}
-          color={"#076BC4"}
-          position={"relative"}
-          top={"20px"}
-          marginBottom={"20px"}
-        >
-          Load More <ChevronDownIcon />
-        </Link>
-      </Center>
     </>
   );
 };

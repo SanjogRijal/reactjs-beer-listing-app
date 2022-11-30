@@ -1,19 +1,38 @@
-import { Box, FormControl, FormLabel } from "@chakra-ui/react";
+import {
+  Button,
+  FormControl,
+  FormLabel,
+  Grid,
+  GridItem,
+  Input,
+} from "@chakra-ui/react";
 import { ReactJSXElement } from "@emotion/react/types/jsx-namespace";
+
 
 export const AddBeerForm: React.FC = (): ReactJSXElement => {
   let form = (
-    <Box>
-      <Box textAlign="center">Add New Beer</Box>
-
-      <Box my={4} textAlign="center">
+    <Grid templateAreas={"repeat(2,2fr)"}>
+      <GridItem colSpan={2}>
         <form>
           <FormControl>
-            <FormLabel></FormLabel>
+            <FormLabel>Enter Beername</FormLabel>
+            <Input placeholder="Beer name*" />
           </FormControl>
+          <FormControl>
+            <FormLabel>Genre</FormLabel>
+            <Input placeholder="Genre*" />
+          </FormControl>
+          <FormControl>
+            <FormLabel>Description</FormLabel>
+            <Input placeholder="Description*" />
+          </FormControl>
+
+          <Button left={"8vw"} top={"10px"}>
+            Submit
+          </Button>
         </form>
-      </Box>
-    </Box>
+      </GridItem>
+    </Grid>
   );
-  return <h1>Hello From Beer Form</h1>;
+  return <>{form}</>;
 };
