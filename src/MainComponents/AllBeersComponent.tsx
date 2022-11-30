@@ -1,6 +1,7 @@
-import { CardComponent } from "./CardComponent";
+import React from "react";
+import CardComponent from "./CardComponent";
 
-export const AllBeersComponent = (props: any) => {
+export const AllBeersComponent = () => {
   return (
     <>
       <CardComponent />

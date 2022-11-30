@@ -1,9 +1,8 @@
 import { Container, Link, Text } from "@chakra-ui/react";
 
 export const NoContent = () => {
-
   return (
-    <Container>
+    <>
       <Text>Nothing to see yet</Text>
       <Text>
         <Link
@@ -14,6 +13,6 @@ export const NoContent = () => {
           Click Here
         </Link>
       </Text>
-    </Container>
+    </>
   );
 };

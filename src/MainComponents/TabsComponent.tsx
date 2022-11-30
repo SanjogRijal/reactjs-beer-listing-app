@@ -1,4 +1,11 @@
-import { Tabs, Tab, TabList, TabPanel, TabPanels } from "@chakra-ui/react";
+import {
+  Tabs,
+  Tab,
+  TabList,
+  TabPanel,
+  TabPanels,
+  Center,
+} from "@chakra-ui/react";
 
 type TabsComponentProps = {
   tabLists: Array<string>;
@@ -23,12 +30,13 @@ export const TabsComponent: React.FC<TabsComponentProps> = ({
           </Tab>
         ))}
       </TabList>
-
-      <TabPanels>
-        {tabPanels.map((panel: React.ReactElement) => (
-          <TabPanel key={Math.random().toString()}>{panel}</TabPanel>
-        ))}
-      </TabPanels>
+      <Center>
+        <TabPanels>
+          {tabPanels.map((panel: React.ReactElement) => (
+            <TabPanel key={Math.random().toString()}>{panel}</TabPanel>
+          ))}
+        </TabPanels>
+      </Center>
     </Tabs>
   );
 };

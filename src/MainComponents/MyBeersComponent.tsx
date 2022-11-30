@@ -1,16 +1,12 @@
-import { Text, Container, Link, Stack } from "@chakra-ui/react";
-import { CardComponent } from "./CardComponent";
+import { Text, Container, Link, Stack, Center } from "@chakra-ui/react";
+import CardComponent from "./CardComponent";
 
 export const MyBeersComponent = () => {
   let myBeers = ["Corona", "Budweiser", "Bahrasinghe"];
   const myBeersElement: React.ReactElement =
     myBeers.length > 0 ? (
-      <Container
-        backgroundColor={"#FAFAFA"}
-        height={["12vh", "10vh", "50vh"]}
-        flexDirection="column"
-      >
-        <Stack alignItems={"center"} position={"relative"} top="20vh">
+      <Stack alignItems={"center"} position={"relative"} top="20vh">
+        <Center flexDirection={"column"}>
           <Text top={"20px"}>Nothing to see yet</Text>
           <Stack direction={"row"}>
             <Link
@@ -23,8 +19,8 @@ export const MyBeersComponent = () => {
             </Link>
             <Text>to add your first beer!</Text>
           </Stack>
-        </Stack>
-      </Container>
+        </Center>
+      </Stack>
     ) : (
       <CardComponent />
     );

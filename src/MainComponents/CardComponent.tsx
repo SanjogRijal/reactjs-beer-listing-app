@@ -1,24 +1,36 @@
-import { Card, Stack, CardBody, Link } from "@chakra-ui/react";
+import { Card, CardBody, Link, Flex, Stack, Grid } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
-import { ReactElement, SetStateAction, useEffect, useState } from "react";
+import {
+  MouseEventHandler,
+  ReactElement,
+  SetStateAction,
+  Suspense,
+  useEffect,
+  useState,
+} from "react";
+import axios from "axios";
+
 import { HeadingComponent } from "../SecondaryComponents/HeadingComponent";
 import { ImageComponent } from "../SecondaryComponents/ImageComponent";
 import { ParagraphComponent } from "../SecondaryComponents/ParagraphComponent";
 import { REACT_APP_BASE_URL } from "../env";
-import axios from "axios";
-export const CardComponent: React.FC = (): React.ReactElement => {
+
+const CardComponent: React.FC = (): React.ReactElement => {
   const [beers, setBeers] = useState([]);
   const [page, setPage] = useState(1);
+
   useEffect(() => {
     getBeers();
-  }, []);
-
-  const getBeers: any = async (): Promise<any> => {
-    setPage(page + 1);
+  }, [page]);
+  const getBeers: Function = async (): Promise<any> => {
     let beerLists: SetStateAction<any> = await axios.get(
-      `${REACT_APP_BASE_URL}/beers?page=${page}&per_page=3`
+      `${REACT_APP_BASE_URL}/beers?page=${page}&per_page=4`
     );
-    setBeers(beerLists.data);
+    setBeers(() => beerLists.data);
+  };
+
+  const changePage: Function = () => {
+    setPage((p) => p + 2);
   };
 
   const beerCards: Array<ReactElement> = beers.map(
@@ -34,24 +46,27 @@ export const CardComponent: React.FC = (): React.ReactElement => {
       let ingredients: Array<string> = Object.keys(beer.ingredients);
       return (
         <Card
-          direction={{ base: "column", sm: "row" }}
+          _hover={{ backgroundColor: "#F3F8FD" }}
+          direction={"row"}
+          width={["100%", "100%"]}
           overflow="hidden"
           variant="outline"
-          height={"20vh"}
-          marginTop={"2vh"}
+          height={["100%", "20vh"]}
           textOverflow={"hidden"}
           key={Math.random().toString()}
         >
-          <Stack direction={"row"} padding={"1vh"}>
+          <Stack direction={["column", "row"]} padding={"2vh"}>
             <ImageComponent
               imageUrl={beerImage}
               tooltipLabel={ingredients.toString()}
             />
 
             <Stack>
-              <CardBody _hover={{ backgroundColor: "#F3F8FD" }}>
-                <HeadingComponent heading={beerName} />
-                <ParagraphComponent description={beerDescription} />
+              <CardBody>
+                <Suspense fallback={<>Loading......</>}>
+                  <HeadingComponent heading={beerName} />
+                  <ParagraphComponent description={beerDescription} />
+                </Suspense>
               </CardBody>
             </Stack>
           </Stack>
@@ -62,10 +77,20 @@ export const CardComponent: React.FC = (): React.ReactElement => {
 
   return (
     <>
-      {beerCards}
+      <Grid
+        templateColumns={["repeat(1,1fr)", "repeat(2,2fr)"]}
+        gap={4}
+        flexDirection={["column", "column", "row"]}
+        flexGrow={"50%"}
+      >
+        {beerCards}
+      </Grid>
+
       <Link
-        marginLeft={"14vw"}
-        onClick={getBeers}
+        left={["10vw", "6vw", "45vw"]}
+        onClick={() => {
+          changePage();
+        }}
         color={"#076BC4"}
         position={"relative"}
         top={"20px"}
@@ -75,3 +100,5 @@ export const CardComponent: React.FC = (): React.ReactElement => {
     </>
   );
 };
+
+export default CardComponent;
