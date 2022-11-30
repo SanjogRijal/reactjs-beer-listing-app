@@ -1,7 +1,15 @@
-import { Card, CardBody, Link, Flex, Stack, Grid } from "@chakra-ui/react";
+import {
+  Card,
+  CardBody,
+  Link,
+  Flex,
+  Stack,
+  Grid,
+  Spacer,
+  Center,
+} from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import {
-  MouseEventHandler,
   ReactElement,
   SetStateAction,
   Suspense,
@@ -18,15 +26,15 @@ import { REACT_APP_BASE_URL } from "../env";
 const CardComponent: React.FC = (): React.ReactElement => {
   const [beers, setBeers] = useState([]);
   const [page, setPage] = useState(1);
-
   useEffect(() => {
     getBeers();
   }, [page]);
+
   const getBeers: Function = async (): Promise<any> => {
     let beerLists: SetStateAction<any> = await axios.get(
-      `${REACT_APP_BASE_URL}/beers?page=${page}&per_page=4`
+      `${REACT_APP_BASE_URL}/beers?page=${page}&per_page=10`
     );
-    setBeers(() => beerLists.data);
+    setBeers(beers.concat(beerLists.data));
   };
 
   const changePage: Function = () => {
@@ -40,6 +48,7 @@ const CardComponent: React.FC = (): React.ReactElement => {
       image_url: string;
       ingredients: Array<string>;
     }) => {
+      console.log();
       let beerName: string = beer.name;
       let beerDescription: string = beer.description;
       let beerImage: string = beer.image_url;
@@ -85,18 +94,19 @@ const CardComponent: React.FC = (): React.ReactElement => {
       >
         {beerCards}
       </Grid>
-
-      <Link
-        left={["10vw", "6vw", "45vw"]}
-        onClick={() => {
-          changePage();
-        }}
-        color={"#076BC4"}
-        position={"relative"}
-        top={"20px"}
-      >
-        Load More <ChevronDownIcon />
-      </Link>
+      <Center>
+        <Link
+          onClick={() => {
+            changePage();
+          }}
+          color={"#076BC4"}
+          position={"relative"}
+          top={"20px"}
+          marginBottom={"20px"}
+        >
+          Load More <ChevronDownIcon />
+        </Link>
+      </Center>
     </>
   );
 };
