@@ -22,13 +22,14 @@ export const BeerModal: React.FC<BeerModalProps> = ({
   return (
     <>
       <Button
-        position={"fixed"}
-        bottom={"45.2vw"}
+        // bottom={["95.3vh", "45.2vw"]}
         onClick={onOpen}
-        left={"90.5vw"}
+        // left={["60vw", "75vw"]}
+        borderRadius={"0"}
         backgroundColor={"#2B65BD"}
         color={"#FFFFFF"}
         _hover={{ backgroundColor: "#004789" }}
+        left={"44.6vw"}
       >
         Add a new beer
       </Button>

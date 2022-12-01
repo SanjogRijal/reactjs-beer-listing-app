@@ -1,4 +1,3 @@
-import React from "react";
 import { ContainerComponent } from "./ContainerComponent/ContainerComponent";
 
 function App() {

@@ -22,11 +22,12 @@ export const AllBeersComponent = () => {
 
   const changePage = () => {
     setPage((p) => p + 1);
+    getBeers();
   };
 
   return (
     <>
-      <CardComponent beers={beers} />
+      <CardComponent beers={beers} triggeringComponent={"allBeers"} />
       <Center>
         <Link
           onClick={() => {

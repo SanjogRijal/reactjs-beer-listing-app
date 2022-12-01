@@ -18,7 +18,7 @@ export const TabsComponent: React.FC<TabsComponentProps> = ({
 }: TabsComponentProps): React.ReactElement => {
   return (
     <>
-      <Tabs>
+      <Tabs colorScheme="#F3F8FD">
         <TabList>
           {tabLists.map((tab: string) => (
             <Tab
