@@ -7,7 +7,7 @@ export const NoContent = () => {
       <Text>
         <Link
           onClick={() => {
-            console.log("Add More Link Clicked");
+            console.log("ITS CLICKED");
           }}
         >
           Click Here
