@@ -17,5 +17,5 @@ Web Application for listing beers and adding your own beers.
       Inside db folder do: npm start
 
 ## Localhost URL:
-Frontend: http://localhost:3000
-Backend: http://localhost:3004
+      Frontend: http://localhost:3000
+      Backend: http://localhost:3004
