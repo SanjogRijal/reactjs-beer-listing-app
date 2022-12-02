@@ -10,7 +10,6 @@ class BeerHandlers {
   }
 
   getBeer = async () => {
-    console.log(this.page);
     return await axios.get(`${this.url}/beers?_page=${this.page}&_limit=10`);
   };
 

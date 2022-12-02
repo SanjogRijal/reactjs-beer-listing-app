@@ -5,13 +5,7 @@ export const NoContent = () => {
     <>
       <Text>Nothing to see yet</Text>
       <Text>
-        <Link
-          onClick={() => {
-            console.log("ITS CLICKED");
-          }}
-        >
-          Click Here
-        </Link>
+        <Link>Click Here</Link>
       </Text>
     </>
   );

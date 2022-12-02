@@ -23,13 +23,11 @@ const CardComponent: React.FC<{
       ingredients: Array<string>;
     }) => {
       const { triggeringComponent } = props;
-      console.log();
       let beerName: string = beer.name;
       let beerDescription: string = beer.description;
       let tagline: string | undefined =
         triggeringComponent === "allBeers" ? beer.tagline : beer.genre;
       let beerImage: string = beer.image_url;
-      console.log(beer.ingredients);
       let ingredients: Array<string> | string | undefined =
         triggeringComponent === "allBeers"
           ? Object.keys(beer.ingredients)

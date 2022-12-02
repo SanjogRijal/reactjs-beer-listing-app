@@ -18,10 +18,6 @@ export const MyBeersComponent = () => {
     let beerLists: SetStateAction<any> = await beerHandler.getBeer();
     setMyBeers(myBeers.concat(beerLists.data));
   };
-  const changePage = () => {
-    setPage((p) => p + 1);
-    getMyBeers();
-  };
 
   const myBeersElement: React.ReactElement = (
     <>

@@ -54,7 +54,7 @@ export const AddBeerForm: React.FC = (): ReactJSXElement => {
         console.log("Beer Inserted Successfully");
       })
       .catch((e) => {
-        console.log("Error");
+        console.log(`[Insertion Error]: ${e}`);
       });
     window.location.reload();
   };
@@ -86,7 +86,7 @@ export const AddBeerForm: React.FC = (): ReactJSXElement => {
           </FormControl>
 
           <Button
-            left={"8vw"}
+            left={["32vw", "8vw"]}
             top={"10px"}
             onClick={() => insertMyBeer()}
             backgroundColor={"#2B65BD"}
