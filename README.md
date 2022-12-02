@@ -9,8 +9,8 @@ Web Application for listing beers and adding your own beers.
      ### API: https://api.punkapi.com/v2/beers
      
 ## Installing Dependencies:
-Inside root folder do: ### npm install
-Inside db folder do: ### npm install
+npm install
+npm install
 
 ## Running the Application
 Inside root folder do: ### npm start
