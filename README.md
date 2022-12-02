@@ -7,3 +7,15 @@ Web Application for listing beers and adding your own beers.
      ### Frontend Library: React
      ### Component Library: Chakra-UI
      ### API: https://api.punkapi.com/v2/beers
+     
+## Installing Dependencies:
+Inside root folder do: ### npm install
+Inside db folder do: ### npm install
+
+## Running the Application
+Inside root folder do: ### npm start
+Inside db folder do: ### npm start
+
+## Localhost URL:
+Frontend: http://localhost:3000
+Backend: http://localhost:3004
