@@ -1,18 +1,4 @@
 {
   "beers": [
-    {
-      "name": "Barahsinghe",
-      "genre": "German Hopped Pilsner ",
-      "description": "Barahsinghe is a Nepali made Pilsner. It's factory is situated in Kurintar. ",
-      "image_url": "/static/media/beerImage.b76e3541ac28ef99adcf.png",
-      "id": 1
-    },
-    {
-      "name": "Gorkha Beer",
-      "genre": "Strong Premium Craft Beer",
-      "description": "Gorkha is a Nepali Brewed Beer. It has a good taste and is among the few beers with highest percentage of alcohol in Nepal.",
-      "image_url": "/static/media/beerImage.b76e3541ac28ef99adcf.png",
-      "id": 2
-    }
   ]
 }
