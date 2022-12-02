@@ -10,6 +10,7 @@ import { ReactJSXElement } from "@emotion/react/types/jsx-namespace";
 import { useState } from "react";
 import BeerImage from "./beerImage.png";
 import BeerHandlers from "../dbHandler/beerHandlers";
+import { ImageComponent } from "./ImageComponent";
 
 export const AddBeerForm: React.FC = (): ReactJSXElement => {
   const [beername, setBeerName] = useState("");
@@ -60,6 +61,7 @@ export const AddBeerForm: React.FC = (): ReactJSXElement => {
   let form = (
     <Grid templateAreas={"repeat(2,2fr)"}>
       <GridItem colSpan={2}>
+        <ImageComponent imageUrl={BeerImage} tooltipLabel="Houzz Beer" />
         <form>
           <FormControl>
             <FormLabel>Enter Beername</FormLabel>
@@ -83,7 +85,14 @@ export const AddBeerForm: React.FC = (): ReactJSXElement => {
             />
           </FormControl>
 
-          <Button left={"8vw"} top={"10px"} onClick={() => insertMyBeer()}>
+          <Button
+            left={"8vw"}
+            top={"10px"}
+            onClick={() => insertMyBeer()}
+            backgroundColor={"#2B65BD"}
+            color={"#FFFFFF"}
+            _hover={{ backgroundColor: "#004789" }}
+          >
             Submit
           </Button>
         </form>

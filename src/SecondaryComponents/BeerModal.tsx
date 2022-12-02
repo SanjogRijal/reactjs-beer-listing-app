@@ -40,18 +40,18 @@ export const BeerModal: React.FC<BeerModalProps> = ({
   return (
     <>
       {myBeers.length > 0 ? (
-        <Button
-          // bottom={["95.3vh", "45.2vw"]}
-          onClick={onOpen}
-          // left={["60vw", "75vw"]}
-          borderRadius={"0"}
-          backgroundColor={"#2B65BD"}
-          color={"#FFFFFF"}
-          _hover={{ backgroundColor: "#004789" }}
-          left={["22vw", "44.6vw"]}
-        >
-          Add a new beer
-        </Button>
+        <Center>
+          <Button
+            top={"2vh"}
+            onClick={onOpen}
+            borderRadius={"0"}
+            backgroundColor={"#2B65BD"}
+            color={"#FFFFFF"}
+            _hover={{ backgroundColor: "#004789" }}
+          >
+            Add a new beer
+          </Button>
+        </Center>
       ) : (
         <Stack alignItems={"center"} position={"relative"} top="20vh">
           <Center flexDirection={"column"}>

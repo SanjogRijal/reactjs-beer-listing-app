@@ -1,3 +1,18 @@
 {
-  "beers": []
+  "beers": [
+    {
+      "name": "dsafasdf",
+      "genre": "asdfsadf",
+      "description": "sadfasdf",
+      "image_url": "/static/media/beerImage.b76e3541ac28ef99adcf.png",
+      "id": 1
+    },
+    {
+      "name": "dsafasdf",
+      "genre": "asdfasdf",
+      "description": "asdfasdf",
+      "image_url": "/static/media/beerImage.b76e3541ac28ef99adcf.png",
+      "id": 2
+    }
+  ]
 }
